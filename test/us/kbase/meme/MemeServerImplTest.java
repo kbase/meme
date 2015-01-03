@@ -1303,15 +1303,15 @@ public class MemeServerImplTest {
 */
 	@Test
 	public void testDeleteJob() throws AuthException, IOException, UnauthorizedException, JsonClientException {
-		String jobId = "53194e20e4b0e676ba20b7af";
+		String jobId = "53abab59e4b0796ed8e47141";
 
 //		AuthToken token = AuthService.login(JOB_ACCOUNT, new String(JOB_PASSWORD)).getToken();
 		AuthToken token = AuthService.login(USER_NAME, new String(PASSWORD)).getToken();
-		AuthToken memeToken = AuthService.login(MemeServerConfig.SERVICE_LOGIN, new String(MemeServerConfig.SERVICE_PASSWORD)).getToken();
+		AuthToken serviceToken = AuthService.login(MemeServerConfig.SERVICE_LOGIN, new String(MemeServerConfig.SERVICE_PASSWORD)).getToken();
 
 		URL jobServiceUrl = new URL(JOB_SERVICE);
 		UserAndJobStateClient jobClient = new UserAndJobStateClient(jobServiceUrl, token);
-		jobClient.forceDeleteJob(memeToken.toString(), jobId);
+		jobClient.forceDeleteJob(serviceToken.toString(), jobId);
 	}
 	
 /*	@Test

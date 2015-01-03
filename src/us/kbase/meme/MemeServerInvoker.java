@@ -21,6 +21,11 @@ public class MemeServerInvoker {
                 .withArgName("help")
                 .create() );
 
+		options.addOption( OptionBuilder.withLongOpt( "test" )
+                .withDescription( "for testing only" )
+                .withArgName("test")
+                .create() );
+
 		options.addOption( OptionBuilder.withLongOpt( "method" )
                 .withDescription( "available methods: find_motifs_with_meme_job_from_ws | compare_motifs_with_tomtom_by_collection_from_ws | compare_motifs_with_tomtom_job_by_collection_from_ws | find_sites_with_mast_by_collection_from_ws | find_sites_with_mast_job_by_collection_from_ws | get_pspm_collection_from_meme_result_job_from_ws" )
                 .hasArg(true)
@@ -437,6 +442,10 @@ public class MemeServerInvoker {
 		    	HelpFormatter formatter = new HelpFormatter();
 		    	formatter.printHelp( "java -jar /kb/deployment/meme/meme.jar [parameters]", options );
 
+		    }
+		    else if( line.hasOption( "test" ) ) {
+		    	// return nothing and exit
+		    	System.exit(0);
 		    }
 		    else {
 		    	if ( validateInput(line)){

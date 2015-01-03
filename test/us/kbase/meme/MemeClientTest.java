@@ -28,12 +28,12 @@ public class MemeClientTest {
 	
 	private SequenceSet testSequenceSet = new SequenceSet();
 	private MemeRunResult memeRunResult = new MemeRunResult();
-	private String serverUrl = "http://140.221.85.173:7077";
+	private String serverUrl = "http://140.221.67.196:7108/";//this is a new enigma instance, old was "http://140.221.85.173:7077";
 //	private String serverUrl = "http://kbase.us/services/meme/";
 //	private String serverUrl = "http://127.0.0.1:7108";
 
-	private static final String USER_NAME = "aktest";
-	private static final String PASSWORD = "1475rokegi";
+	private static final String USER_NAME = "";
+	private static final String PASSWORD = "";
 	private static final String TEST_WORKSPACE = "AKtest";
 	
 	private final String JOB_SERVICE = "https://kbase.us/services/userandjobstate";

@@ -27,7 +27,7 @@ public class TestWorkspaceDeluxe {
 
 	private static final String USER_NAME = "";
 	private static final String PASSWORD = "";
-	private static final String workspaceName = "AKtest";
+	private static final String workspaceName = "myws2";//"AKtest";
 
 	@Test
 	public void testRegisterModule() throws Exception {
@@ -155,10 +155,10 @@ public class TestWorkspaceDeluxe {
 	public void testWsListObjects() throws Exception {
 		AuthToken authToken = AuthService.login(USER_NAME, new String(PASSWORD)).getToken();
 		ListObjectsParams params = new ListObjectsParams();
-		//String type = "ExpressionServices.ExpressionSeries-1.0";
+		String type = "KBaseGenomes.Genome-1.0";
 		List<String> workspaces = new ArrayList<String>();
-		workspaces.add(workspaceName);
-		//workspaces.add("networks_typed_objects_examples");
+		//workspaces.add(workspaceName);
+		workspaces.add("myws2");
 		//params.setType(type);
 		params.setWorkspaces(workspaces);
 		List<Tuple11<Long, String, String, String, Long, String, Long, String, String, Long, Map<String, String>>> typeInfo = WsDeluxeUtil.wsClient(authToken.toString()).listObjects(params);
@@ -184,7 +184,7 @@ public class TestWorkspaceDeluxe {
 	@Test
 	public void testWsReadObject() throws Exception {
 		AuthToken authToken = AuthService.login(USER_NAME, new String(PASSWORD)).getToken();
-		String name = "kb|tomtomrunresult.83";
+		String name = "halo-string";
 		//String exampleWs = "networks_typed_objects_examples";
 		
 		ObjectData output = WsDeluxeUtil.getObjectFromWorkspace(workspaceName, name, authToken.toString());
