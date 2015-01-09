@@ -32,7 +32,7 @@ deploy-all: distrib deploy-client deploy-worker
 
 deploy-client: deploy-libs deploy-scripts deploy-docs
 
-deploy-libs: build-libs
+deploy-libs:
 	rsync --exclude '*.bak*' -arv lib/. $(TARGET)/lib/.
 
 deploy-scripts:
@@ -83,13 +83,15 @@ distrib: deploy-properties
 	cp -f ./glassfish_start_service.sh $(TARGET_DIR)
 	cp -f ./glassfish_stop_service.sh $(TARGET_DIR)
 	cp -f ./meme.awf $(TARGET_DIR)
-	echo "./glassfish_start_service.sh $(TARGET_DIR)/service.war $(TARGET_PORT) $(THREADPOOL_SIZE)" > $(TARGET_DIR)/start_service.sh
-	chmod +x $(TARGET_DIR)/start_service.sh
-	echo "./glassfish_stop_service.sh $(TARGET_PORT)" > $(TARGET_DIR)/stop_service.sh
-	chmod +x $(TARGET_DIR)/stop_service.sh
+	echo "$(TARGET_DIR)/glassfish_start_service.sh $(TARGET_DIR)/service.war $(TARGET_PORT) $(THREADPOOL_SIZE)" > $(TARGET_DIR)/start_service
+	chmod +x $(TARGET_DIR)/start_service
+	echo "$(TARGET_DIR)/glassfish_stop_service.sh $(TARGET_PORT)" > $(TARGET_DIR)/stop_service
+	chmod +x $(TARGET_DIR)/stop_service
 
-build-docs: build-libs
+build-docs:
 	pod2html --infile=lib/Bio/KBase/$(SERVICE_NAME)/Client.pm --outfile=docs/$(SERVICE_NAME).html
+
+compile-docs:
 
 build-libs:
 	compile_typespec \
