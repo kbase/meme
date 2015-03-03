@@ -16,7 +16,7 @@ compare_motifs_with_tomtom_job_from_ws, find_sites_with_mast_job_from_ws. All ot
 To prevent MEME from running  AWE client, change DEPLOY_AWE = true to DEPLOY_AWE = false in us.kbase.meme.MemeServerConfig source file.
 URL of AWE client can be changed in Makefile. Run "make", "make deploy" and then restart the service to apply changes.
 
-To install MEME service back-end for AWE client, clone meme.git repository on the host running AWE client and run command 'make deploy-jar'. This command will work with master branches of typecomp and java type generator as well.
+To install MEME service back-end for AWE client, clone meme.git repository on the host running AWE client and run command 'make deploy-worker'. This command will work with master branches of typecomp and java type generator as well.
 
 Requirements:
 MEME service requires installation of MEME Suite 4.8.1 with patches 1-5 on servers running MEME server and AWE client.
